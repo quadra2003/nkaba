@@ -28,24 +28,31 @@ const Layout = ({ children }) => {
                     scrollbar-color: rgba(100, 100, 100, 0.5) #f4f4f4;
                 }
 
-                /* Responsive Header + Navigation */
-                .header-nav-container {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    justify-content: center;
+                /* Title Header */
+                .header-container {
+                    background-color: white;
                     text-align: center;
-                    background-color: #0047A0;
-                    color: white;
                     padding: 10px;
+                    font-size: 18px;
+                    font-weight: bold;
+                    border-bottom: 1px solid #ddd;
+                }
+
+                /* Navigation Bar */
+                .nav-container {
+                    background-color: #0047A0;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 10px 0;
                 }
 
                 .nav-links {
                     display: flex;
-                    flex-wrap: wrap;
                     justify-content: center;
-                    gap: 15px;
-                    margin-top: 5px;
+                    align-items: center;
+                    gap: 20px; /* Ensures even spacing */
+                    flex-wrap: nowrap; /* Prevents vertical stacking */
                 }
 
                 .nav-links a {
@@ -53,6 +60,7 @@ const Layout = ({ children }) => {
                     text-decoration: none;
                     font-size: 14px;
                     padding: 5px 10px;
+                    white-space: nowrap; /* Ensures links stay in one line */
                     transition: opacity 0.2s;
                 }
 
@@ -61,32 +69,37 @@ const Layout = ({ children }) => {
                 }
 
                 @media (max-width: 768px) {
-                    .header-nav-container {
-                        padding: 10px;
+                    .header-container {
+                        padding: 8px;
+                        font-size: 16px;
+                    }
+                    .nav-container {
+                        padding: 8px 0;
                     }
                     .nav-links {
-                        flex-direction: column;
-                        align-items: center;
-                        gap: 8px;
+                        gap: 15px; /* Adjusts spacing for smaller screens */
+                        flex-wrap: nowrap; /* Keeps it in a single row */
                     }
                 }
             `}</style>
 
-            {/* Header + Navigation in a Single Unit */}
-            <div className="header-nav-container">
-                <h1 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '5px' }}>
-                    National Korean American Bar Association (NKABA)
-                </h1>
-                <nav className="nav-links">
+            {/* Header Title */}
+            <div className="header-container">
+                National Korean American Bar Association (NKABA)
+            </div>
+
+            {/* Navigation Bar */}
+            <nav className="nav-container">
+                <div className="nav-links">
                     <Link href="/">Home</Link>
                     <Link href="/about">About Us</Link>
                     <Link href="/board">Board</Link>
                     <Link href="/contact">Contact</Link>
-                </nav>
-            </div>
+                </div>
+            </nav>
 
             {/* Push content down to avoid overlap */}
-            <div style={{ paddingTop: '80px' }}>
+            <div style={{ paddingTop: '100px' }}>
                 {children}
             </div>
 
