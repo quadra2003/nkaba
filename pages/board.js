@@ -1,7 +1,4 @@
-// pages/board.js
 import Layout from '../components/layout';
-
-import Link from 'next/link';
 
 export default function Board() {
     const boardMembers = [
@@ -63,64 +60,69 @@ export default function Board() {
 
     return (
         <Layout>
-        <div style={{ fontFamily: 'sans-serif', padding: '0.5rem', textAlign: 'center' }}>
-
-            <h2 style={{ marginBottom: '15px', fontWeight: 'bold' }}>Board of Directors</h2>
-            
             <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)', // Always 3 profiles per row
-                gap: '10px',
-                justifyContent: 'center',
-                maxWidth: '750px',
-                margin: '0 auto'
+                textAlign: 'center',
+                maxWidth: '900px',  // Ensures alignment with the navigation bar
+                margin: '0 auto',  // Centers everything horizontally
+                padding: '2rem 0'
             }}>
-                {boardMembers.map((member, index) => (
-                    <div key={index} style={{
-                        width: '180px', 
-                        height: '200px',
-                        border: '1px solid #ddd',
-                        textAlign: 'center',
-                        backgroundColor: '#f9f9f9',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}>
-                        {/* Profile Image (150px x 150px, No Rounded Corners) */}
-                        <img src={member.image} alt={member.name} style={{
-                            width: '150px',
-                            height: '150px',
-                            objectFit: 'cover'
-                        }} />
-                        
-                        {/* Name (Not Bold Anymore) */}
-                        <h3 style={{ margin: '5px 0', fontSize: '14px', fontWeight: 'normal' }}>{member.name}</h3>
+                <h2 style={{ marginBottom: '20px', fontWeight: 'bold' }}>Board of Directors</h2>
 
-                        {/* Icons for website and LinkedIn */}
-                        <div style={{ display: 'flex', gap: '10px' }}>
-                            {/* Website (New Globe Icon) */}
-                            <a href={member.link} target="_blank" rel="noopener noreferrer">
-                                <img 
-                                    src="https://upload.wikimedia.org/wikipedia/commons/8/87/Globe_icon_2.svg" 
-                                    alt="Website" 
-                                    style={{ width: '20px', height: '20px' }} 
-                                />
-                            </a>
+                {/* Grid for Board Members */}
+                <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',  // Responsive 3-column layout
+                    gap: '20px',
+                    justifyContent: 'center',  // Centers the grid items
+                    alignItems: 'center',
+                }}>
+                    {boardMembers.map((member, index) => (
+                        <div key={index} style={{
+                            width: '200px',
+                            height: '220px',
+                            border: '1px solid #ddd',
+                            textAlign: 'center',
+                            backgroundColor: '#f9f9f9',
+                            display: 'flex',
+                            flexDirection: 'column',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            margin: '0 auto'  // Ensures proper centering
+                        }}>
+                            {/* Profile Image (150px x 150px, No Rounded Corners) */}
+                            <img src={member.image} alt={member.name} style={{
+                                width: '150px',
+                                height: '150px',
+                                objectFit: 'cover'
+                            }} />
+                            
+                            {/* Name (Not Bold Anymore) */}
+                            <h3 style={{ margin: '5px 0', fontSize: '14px', fontWeight: 'normal' }}>{member.name}</h3>
 
-                            {/* LinkedIn Icon */}
-                            <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                                <img 
-                                    src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" 
-                                    alt="LinkedIn" 
-                                    style={{ width: '20px', height: '20px' }} 
-                                />
-                            </a>
+                            {/* Icons for website and LinkedIn */}
+                            <div style={{ display: 'flex', gap: '10px' }}>
+                                {/* Website (Globe Icon) */}
+                                <a href={member.link} target="_blank" rel="noopener noreferrer">
+                                    <img 
+                                        src="https://upload.wikimedia.org/wikipedia/commons/8/87/Globe_icon_2.svg" 
+                                        alt="Website" 
+                                        style={{ width: '20px', height: '20px' }} 
+                                    />
+                                </a>
+
+                                {/* LinkedIn Icon */}
+                                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                                    <img 
+                                        src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" 
+                                        alt="LinkedIn" 
+                                        style={{ width: '20px', height: '20px' }} 
+                                    />
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-        </div>
         </Layout>
     );
 }
