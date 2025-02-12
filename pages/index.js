@@ -1,8 +1,12 @@
+// pages/index.js
+import Layout from '../components/Layout';
+
 import Head from 'next/head';
 import Link from 'next/link';
 
 export default function Home() {
     return (
+        <Layout>
         <div className="container">
             <Head>
                 <title>NKABA - National Korean American Bar Association</title>
@@ -27,5 +31,6 @@ export default function Home() {
                 <p>&copy; 2025 National Korean American Bar Association</p>
             </footer>
         </div>
+        </Layout>
     );
 }
