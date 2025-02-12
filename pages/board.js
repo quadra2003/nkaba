@@ -62,7 +62,7 @@ export default function Board() {
         <Layout>
             <div style={{
                 textAlign: 'center',
-                maxWidth: '900px',  // Ensures alignment with the navigation bar
+                maxWidth: '900px',  // Ensures proper alignment
                 margin: '0 auto',  // Centers everything horizontally
                 padding: '2rem 0'
             }}>
@@ -71,10 +71,10 @@ export default function Board() {
                 {/* Grid for Board Members */}
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',  // Responsive 3-column layout
+                    gridTemplateColumns: 'repeat(3, 1fr)',  // Exactly 3 profiles per row
                     gap: '20px',
                     justifyContent: 'center',  // Centers the grid items
-                    alignItems: 'center',
+                    alignItems: 'center'
                 }}>
                     {boardMembers.map((member, index) => (
                         <div key={index} style={{
