@@ -9,7 +9,7 @@ export default function Contact() {
 
     
             {/* Contact Email */}
-            <p>Email:
+            <p><strong>Email:</strong> 
                 <a href="mailto:contact@nkaba.org" style={{ color: '#0047A0', textDecoration: 'none', marginLeft: '5px' }}>
                     contact@nkaba.org
                 </a>
@@ -17,8 +17,8 @@ export default function Contact() {
 
 
     
-            <p>Phone: (123) 456-7890</p>
-            <p>Address: 123 NKABA Lane, Los Angeles, CA 90001</p>
+            <p><strong>Phone:</strong> (123) 456-7890</p>
+            <p><strong>Address:</strong> 123 NKABA Lane, Los Angeles, CA 90001</p>
         </div>
         </Layout>
     );
