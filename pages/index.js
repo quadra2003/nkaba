@@ -26,10 +26,6 @@ export default function Home() {
                     <Link href="/contact" style={{ margin: '10px', textDecoration: 'none', color: 'inherit' }}>Contact</Link>
                 </nav>
             </main>
-
-            <footer style={{ backgroundColor: '#000000', color: '#FFFFFF', padding: '1rem', textAlign: 'center' }}>
-                <p>&copy; 2025 National Korean American Bar Association</p>
-            </footer>
         </div>
         </Layout>
     );
