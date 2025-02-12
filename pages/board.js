@@ -46,27 +46,6 @@ export default function Board() {
             linkedin: "https://www.linkedin.com/in/rosa-namgoong-265bb468/", 
             image: "/rosa-namgoong.jpg",
             bio: "Represents clients in a wide array of financing transactions, catering to venture capital funds, private equity entities, high net worth individuals, public and private corporations, life sciences and technology companies, and real estate investment funds."
-        },
-        { 
-            name: "Jin Hee Park", 
-            link: "https://bbklaw.com/people/jin_hee_park", 
-            linkedin: "https://www.linkedin.com/in/jin-hee-park-esq-2141b978/", 
-            image: "/jin-hee-park.jpg",
-            bio: "Of counsel in Best Best & Krieger's Business Services and Health Care practice groups, focusing on health care law. Counsels health plans, health care systems, hospitals, and various health care providers on a broad range of legal issues including contracting, reimbursement, and regulatory compliance."
-        },
-        { 
-            name: "Samuel Sung H. You", 
-            link: "https://www.royoulaw.com/samuel-h-you", 
-            linkedin: "https://www.linkedin.com/in/samuelyou/", 
-            image: "/samuel-you.jpg",
-            bio: "Founding member of RO & YOU LLP, concentrating his practice in the defense of workers' compensation claims. Provides advice, counsel, and representation to employers, insurance companies, third-party administrators, and government agencies in areas of employer liability matters, California labor practices, workers' compensation strategy, risk management, and third-party subrogation rights."
-        },
-        { 
-            name: "Samuel Yu", 
-            link: "https://kahanafeld.com/team-member/samuel-yu-esq/", 
-            linkedin: "https://www.linkedin.com/in/samuel-yu-6277721b/", 
-            image: "/samuel-yu.jpg",
-            bio: "Managing Partner of Kahana Feld's Irvine office and Chair of the firm's General Business Litigation practice group. Extensive experience in shareholder disputes, employment litigation, real estate disputes, and trade secret litigation."
         }
     ];
 
@@ -83,8 +62,8 @@ export default function Board() {
                 {/* Grid for Board Members */}
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    gap: '10px 20px',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', // Adjusts to screen width
+                    gap: '10px 10px', // Even spacing
                     justifyContent: 'center',
                     alignItems: 'center'
                 }}>
@@ -92,8 +71,8 @@ export default function Board() {
                         <div key={index} 
                             onClick={() => setSelectedMember(member)}
                             style={{
-                                width: '200px',
-                                height: '220px',
+                                width: '150px',  // Optimized for mobile
+                                height: '180px',
                                 border: '1px solid #ddd',
                                 textAlign: 'center',
                                 backgroundColor: '#f9f9f9',
@@ -106,11 +85,11 @@ export default function Board() {
                             }}
                         >
                             <img src={member.image} alt={member.name} style={{
-                                width: '150px',
-                                height: '150px',
+                                width: '120px',
+                                height: '120px',
                                 objectFit: 'cover'
                             }} />
-                            <h3 style={{ margin: '5px 0', fontSize: '14px', fontWeight: 'normal' }}>{member.name}</h3>
+                            <h3 style={{ margin: '5px 0', fontSize: '12px', fontWeight: 'normal' }}>{member.name}</h3>
                         </div>
                     ))}
                 </div>
@@ -138,7 +117,8 @@ export default function Board() {
                                 backgroundColor: 'white',
                                 padding: '20px',
                                 borderRadius: '10px',
-                                width: '350px',
+                                width: '90%',  // Responsive modal width
+                                maxWidth: '350px',
                                 textAlign: 'center',
                                 position: 'relative'
                             }}
@@ -159,12 +139,30 @@ export default function Board() {
                             </button>
 
                             <img src={selectedMember.image} alt={selectedMember.name} style={{
-                                width: '120px',
-                                height: '120px',
+                                width: '100px',
+                                height: '100px',
                                 objectFit: 'cover'
                             }} />
-                            <h3 style={{ margin: '10px 0', fontSize: '18px', fontWeight: 'bold' }}>{selectedMember.name}</h3>
+                            <h3 style={{ margin: '10px 0', fontSize: '16px', fontWeight: 'bold' }}>{selectedMember.name}</h3>
                             <p style={{ fontSize: '14px', color: '#555' }}>{selectedMember.bio}</p>
+
+                            {/* External Links */}
+                            <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '10px' }}>
+                                <a href={selectedMember.link} target="_blank" rel="noopener noreferrer">
+                                    <img 
+                                        src="https://upload.wikimedia.org/wikipedia/commons/8/87/Globe_icon_2.svg" 
+                                        alt="Website" 
+                                        style={{ width: '24px', height: '24px' }} 
+                                    />
+                                </a>
+                                <a href={selectedMember.linkedin} target="_blank" rel="noopener noreferrer">
+                                    <img 
+                                        src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" 
+                                        alt="LinkedIn" 
+                                        style={{ width: '24px', height: '24px' }} 
+                                    />
+                                </a>
+                            </div>
                         </div>
                     </div>
                 )}
