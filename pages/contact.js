@@ -6,7 +6,17 @@ export default function Contact() {
         <Layout>
         <div style={{ padding: '0.5rem', textAlign: 'center' }}>
             <h2>Contact Us</h2>
-            <p>Email: contact@nkaba.org</p>
+
+    
+            {/* Contact Email */}
+            <p><strong>Email:</strong> 
+                <a href="mailto:contact@nkaba.org" style={{ color: '#0047A0', textDecoration: 'none', marginLeft: '5px' }}>
+                    contact@nkaba.org
+                </a>
+            </p>
+
+
+    
             <p>Phone: (123) 456-7890</p>
             <p>Address: 123 NKABA Lane, Los Angeles, CA 90001</p>
         </div>
