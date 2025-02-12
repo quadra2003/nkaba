@@ -88,7 +88,7 @@ export default function Board() {
                 textAlign: 'center',
                 maxWidth: '900px',
                 margin: '0 auto',
-                padding: '2rem 0'
+                padding: '0.5rem 0'
             }}>
                 <h2 style={{ marginBottom: '20px', fontWeight: 'bold' }}>Board of Directors</h2>
 
