@@ -82,8 +82,8 @@ export default function Board() {
                     }}>
                         {/* Profile Image (Now with Normal Square Corners) */}
                         <img src={member.image} alt={member.name} style={{
-                            width: '200px',
-                            height: '200px',
+                            width: '150px',
+                            height: '150px',
                             objectFit: 'cover'
                         }} />
                         
