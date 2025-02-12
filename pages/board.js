@@ -1,8 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Layout from '../components/layout';
 
 export default function Board() {
     const [selectedMember, setSelectedMember] = useState(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    // Detect screen size to adjust layout
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768); // Mobile: width < 768px
+        };
+
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const boardMembers = [
         { 
@@ -46,27 +58,6 @@ export default function Board() {
             linkedin: "https://www.linkedin.com/in/rosa-namgoong-265bb468/", 
             image: "/rosa-namgoong.jpg",
             bio: "Represents clients in financing transactions, advising venture capital funds, private equity entities, high-net-worth individuals, and corporate clients."
-        },
-        { 
-            name: "Jin Hee Park", 
-            link: "https://bbklaw.com/people/jin_hee_park", 
-            linkedin: "https://www.linkedin.com/in/jin-hee-park-esq-2141b978/", 
-            image: "/jin-hee-park.jpg",
-            bio: "Of counsel in Best Best & Krieger's Health Care practice, advising health care systems, hospitals, and providers on regulatory compliance and reimbursement."
-        },
-        { 
-            name: "Samuel Sung H. You", 
-            link: "https://www.royoulaw.com/samuel-h-you", 
-            linkedin: "https://www.linkedin.com/in/samuelyou/", 
-            image: "/samuel-you.jpg",
-            bio: "Founding member of RO & YOU LLP, concentrating on the defense of workers' compensation claims, risk management, and employer liability matters."
-        },
-        { 
-            name: "Samuel Yu", 
-            link: "https://kahanafeld.com/team-member/samuel-yu-esq/", 
-            linkedin: "https://www.linkedin.com/in/samuel-yu-6277721b/", 
-            image: "/samuel-yu.jpg",
-            bio: "Managing Partner at Kahana Feld's Irvine office, specializing in shareholder disputes, employment litigation, real estate disputes, and trade secret litigation."
         }
     ];
 
@@ -76,15 +67,15 @@ export default function Board() {
                 textAlign: 'center',
                 maxWidth: '900px',
                 margin: '0 auto',
-                padding: '0.5rem 0'
+                padding: '2rem 0'
             }}>
                 <h2 style={{ marginBottom: '20px', fontWeight: 'bold' }}>Board of Directors</h2>
 
-                {/* Grid for Board Members (3 per row on all screens) */}
+                {/* Grid for Board Members */}
                 <div style={{
                     display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)', 
-                    gap: '10px 15px',
+                    gridTemplateColumns: isMobile ? 'repeat(3, 1fr)' : 'repeat(3, 1fr)', 
+                    gap: isMobile ? '5px' : '10px 15px',
                     justifyContent: 'center',
                     alignItems: 'center'
                 }}>
@@ -92,8 +83,8 @@ export default function Board() {
                         <div key={index} 
                             onClick={() => setSelectedMember(member)}
                             style={{
-                                width: '150px', 
-                                height: '180px',
+                                width: isMobile ? '100px' : '150px',
+                                height: isMobile ? '130px' : '180px',
                                 border: '1px solid #ddd',
                                 textAlign: 'center',
                                 backgroundColor: '#f9f9f9',
@@ -106,14 +97,14 @@ export default function Board() {
                             }}
                         >
                             <img src={member.image} alt={member.name} style={{
-                                width: '120px',
-                                height: '120px',
+                                width: isMobile ? '80px' : '120px',
+                                height: isMobile ? '80px' : '120px',
                                 objectFit: 'cover'
                             }} />
-                            <h3 style={{ margin: '5px 0', fontSize: '12px', fontWeight: 'normal' }}>{member.name}</h3>
+                            <h3 style={{ margin: '5px 0', fontSize: isMobile ? '10px' : '12px', fontWeight: 'normal' }}>{member.name}</h3>
 
                             {/* Icons */}
-                            <div style={{ display: 'flex', gap: '5px' }}>
+                            <div style={{ display: 'flex', gap: '5px', justifyContent: 'center' }}>
                                 <a href={member.link} target="_blank" rel="noopener noreferrer">
                                     <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Globe_icon_2.svg" alt="Website" style={{ width: '18px', height: '18px' }} />
                                 </a>
@@ -162,8 +153,8 @@ export default function Board() {
                             <h3>{selectedMember.name}</h3>
                             <p>{selectedMember.bio}</p>
 
-                            {/* Icons in Modal */}
-                            <div style={{ display: 'flex', gap: '10px' }}>
+                            {/* Icons in Modal (Centered) */}
+                            <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '10px' }}>
                                 <a href={selectedMember.link} target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Globe_icon_2.svg" style={{ width: '24px' }} /></a>
                                 <a href={selectedMember.linkedin} target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" style={{ width: '24px' }} /></a>
                             </div>
