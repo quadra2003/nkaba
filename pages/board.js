@@ -57,56 +57,56 @@ export default function Board() {
     ];
 
     return (
-        <div style={{ padding: '2rem', textAlign: 'center' }}>
-            <h2 style={{ marginBottom: '20px' }}>Board of Directors</h2>
+        <div style={{ padding: '1rem', textAlign: 'center' }}>
+            <h2 style={{ marginBottom: '15px' }}>Board of Directors</h2>
             <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)', // Always 3 profiles per row
-                gap: '20px',
+                gap: '10px', // Reduced gap for compact look
                 justifyContent: 'center',
-                maxWidth: '900px', // Limits width for better layout
+                maxWidth: '750px', // Limits width for better layout
                 margin: '0 auto'
             }}>
                 {boardMembers.map((member, index) => (
                     <div key={index} style={{
-                        width: '250px', // Square size
-                        height: '250px',
-                        padding: '1rem',
+                        width: '210px', // Smaller square
+                        height: '250px', 
                         border: '1px solid #ddd',
-                        borderRadius: '10px',
+                        borderRadius: '5px',
                         textAlign: 'center',
                         backgroundColor: '#f9f9f9',
                         display: 'flex',
                         flexDirection: 'column',
-                        justifyContent: 'space-between',
+                        justifyContent: 'center',
                         alignItems: 'center'
                     }}>
-                        {/* Profile Image */}
+                        {/* Profile Image (Now with Normal Square Corners) */}
                         <img src={member.image} alt={member.name} style={{
-                            width: '100px',
-                            height: '100px',
-                            objectFit: 'cover',
-                            borderRadius: '10px' // Square format
+                            width: '200px',
+                            height: '200px',
+                            objectFit: 'cover'
                         }} />
                         
                         {/* Name */}
-                        <h3 style={{ margin: '10px 0', fontSize: '16px' }}>{member.name}</h3>
+                        <h3 style={{ margin: '5px 0', fontSize: '14px' }}>{member.name}</h3>
 
                         {/* Icons for website and LinkedIn */}
                         <div style={{ display: 'flex', gap: '10px' }}>
-                            {/* Website (Globe Icon - SVG) */}
+                            {/* Website (New Globe Icon) */}
                             <a href={member.link} target="_blank" rel="noopener noreferrer">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="#0047A0" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-2.21 0-4-3.582-4-8s1.79-8 4-8 4 3.582 4 8-1.79 8-4 8zm0-14a6 6 0 100 12 6 6 0 000-12z"/>
-                                </svg>
+                                <img 
+                                    src="https://upload.wikimedia.org/wikipedia/commons/8/87/Globe_icon_2.svg" 
+                                    alt="Website" 
+                                    style={{ width: '20px', height: '20px' }} 
+                                />
                             </a>
 
-                            {/* LinkedIn (Custom SVG) */}
+                            {/* LinkedIn Icon */}
                             <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
                                 <img 
                                     src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" 
                                     alt="LinkedIn" 
-                                    style={{ width: '24px', height: '24px' }} 
+                                    style={{ width: '20px', height: '20px' }} 
                                 />
                             </a>
                         </div>
