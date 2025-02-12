@@ -105,7 +105,7 @@ export default function Board() {
                             onClick={() => setSelectedMember(member)}
                             style={{
                                 width: isMobile ? '100px' : '150px',
-                                height: isMobile ? '130px' : '180px',
+                                height: isMobile ? '160px' : '180px',
                                 border: '1px solid #ddd',
                                 textAlign: 'center',
                                 backgroundColor: '#f9f9f9',
@@ -123,9 +123,20 @@ export default function Board() {
                                 objectFit: 'cover'
                             }} />
                             <h3 style={{ margin: '5px 0', fontSize: isMobile ? '10px' : '12px', fontWeight: 'normal' }}>{member.name}</h3>
+                
+                            {/* Icons (Website + LinkedIn) */}
+                            <div style={{ display: 'flex', gap: '5px', justifyContent: 'center' }}>
+                                <a href={member.link} target="_blank" rel="noopener noreferrer">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Globe_icon_2.svg" alt="Website" style={{ width: '18px', height: '18px' }} />
+                                </a>
+                                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn" style={{ width: '18px', height: '18px' }} />
+                                </a>
+                            </div>
                         </div>
                     ))}
                 </div>
+
 
                 {/* Modal Popup */}
                 {selectedMember && (
