@@ -1,5 +1,3 @@
-import { FaGlobe, FaLinkedin } from 'react-icons/fa'; // Import icons
-
 export default function Board() {
     const boardMembers = [
         { 
@@ -96,14 +94,20 @@ export default function Board() {
 
                         {/* Icons for website and LinkedIn */}
                         <div style={{ display: 'flex', gap: '10px' }}>
-                            {/* Website (Globe Icon) */}
-                            <a href={member.link} target="_blank" rel="noopener noreferrer" style={{ color: '#0047A0', fontSize: '20px' }}>
-                                <FaGlobe />
+                            {/* Website (Globe Icon - SVG) */}
+                            <a href={member.link} target="_blank" rel="noopener noreferrer">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="#0047A0" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-2.21 0-4-3.582-4-8s1.79-8 4-8 4 3.582 4 8-1.79 8-4 8zm0-14a6 6 0 100 12 6 6 0 000-12z"/>
+                                </svg>
                             </a>
 
-                            {/* LinkedIn Icon */}
-                            <a href={member.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: '#0077b5', fontSize: '20px' }}>
-                                <FaLinkedin />
+                            {/* LinkedIn (Custom SVG) */}
+                            <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                                <img 
+                                    src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" 
+                                    alt="LinkedIn" 
+                                    style={{ width: '24px', height: '24px' }} 
+                                />
                             </a>
                         </div>
                     </div>
