@@ -99,7 +99,7 @@ const Layout = ({ children }) => {
             </nav>
 
             {/* Push content down to avoid overlap */}
-            <div style={{ paddingTop: '100px' }}>
+            <div style={{ paddingTop: '10px' }}>
                 {children}
             </div>
 
