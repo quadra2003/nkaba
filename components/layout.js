@@ -40,18 +40,24 @@ const Layout = ({ children }) => {
                 }
             `}</style>
 
-            {/* Organization Name Header */}
+            {/* Fixed Organization Name Header */}
             <header style={{
                 backgroundColor: '#FFFFFF',
                 textAlign: 'center',
                 padding: '15px 0',
                 fontSize: '18px',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                position: 'fixed',
+                width: '100%',
+                top: 0,
+                left: 0,
+                zIndex: 1100, // Higher than nav bar
+                borderBottom: '1px solid #ddd'
             }}>
                 National Korean American Bar Association (NKABA)
             </header>
 
-            {/* Navigation Bar */}
+            {/* Navigation Bar (Now Below the Fixed Header) */}
             <nav style={{
                 backgroundColor: '#0047A0',
                 padding: '10px',
@@ -68,8 +74,8 @@ const Layout = ({ children }) => {
                 <Link href="/contact" style={{ color: 'white', textDecoration: 'none', margin: '0 15px' }}>Contact</Link>
             </nav>
 
-            {/* Push content down to avoid overlapping with fixed nav */}
-            <div style={{ paddingTop: '90px' }}>
+            {/* Push content down to avoid overlapping with fixed header & nav */}
+            <div style={{ paddingTop: '100px' }}>
                 {children}
             </div>
 
