@@ -9,7 +9,7 @@ export default function Contact() {
 
     
             {/* Contact Email */}
-            <p><strong>Email:</strong> 
+            <p>Email:
                 <a href="mailto:contact@nkaba.org" style={{ color: '#0047A0', textDecoration: 'none', marginLeft: '5px' }}>
                     contact@nkaba.org
                 </a>
