@@ -38,6 +38,16 @@ const Layout = ({ children }) => {
                     border-bottom: 1px solid #ddd;
                 }
 
+                .header-container a {
+                    text-decoration: none;
+                    color: black;
+                    transition: opacity 0.2s;
+                }
+
+                .header-container a:hover {
+                    opacity: 0.7;
+                }
+
                 /* Navigation Bar */
                 .nav-container {
                     background-color: #0047A0;
@@ -51,8 +61,8 @@ const Layout = ({ children }) => {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    gap: 20px; /* Ensures even spacing */
-                    flex-wrap: nowrap; /* Prevents vertical stacking */
+                    gap: 20px;
+                    flex-wrap: nowrap;
                 }
 
                 .nav-links a {
@@ -60,7 +70,7 @@ const Layout = ({ children }) => {
                     text-decoration: none;
                     font-size: 14px;
                     padding: 5px 10px;
-                    white-space: nowrap; /* Ensures links stay in one line */
+                    white-space: nowrap;
                     transition: opacity 0.2s;
                 }
 
@@ -77,15 +87,17 @@ const Layout = ({ children }) => {
                         padding: 8px 0;
                     }
                     .nav-links {
-                        gap: 15px; /* Adjusts spacing for smaller screens */
-                        flex-wrap: nowrap; /* Keeps it in a single row */
+                        gap: 15px;
+                        flex-wrap: nowrap;
                     }
                 }
             `}</style>
 
-            {/* Header Title */}
+            {/* Clickable Header Title */}
             <div className="header-container">
-                National Korean American Bar Association (NKABA)
+                <Link href="/">
+                    National Korean American Bar Association (NKABA)
+                </Link>
             </div>
 
             {/* Navigation Bar */}
@@ -99,7 +111,7 @@ const Layout = ({ children }) => {
             </nav>
 
             {/* Push content down to avoid overlap */}
-            <div style={{ paddingTop: '10px' }}>
+            <div style={{ paddingTop: '100px' }}>
                 {children}
             </div>
 
