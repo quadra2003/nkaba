@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function Board() {
     const boardMembers = [
         { 
@@ -57,22 +59,34 @@ export default function Board() {
     ];
 
     return (
-        <div style={{ padding: '1rem', textAlign: 'center' }}>
-            <h2 style={{ marginBottom: '15px' }}>Board of Directors</h2>
+        <div style={{ fontFamily: 'sans-serif', padding: '1rem', textAlign: 'center' }}>
+            {/* Navigation Bar */}
+            <nav style={{
+                backgroundColor: '#0047A0',
+                padding: '10px',
+                marginBottom: '20px'
+            }}>
+                <Link href="/" style={{ color: 'white', textDecoration: 'none', margin: '0 15px' }}>Home</Link>
+                <Link href="/about" style={{ color: 'white', textDecoration: 'none', margin: '0 15px' }}>About Us</Link>
+                <Link href="/board" style={{ color: 'white', textDecoration: 'none', margin: '0 15px' }}>Board</Link>
+                <Link href="/contact" style={{ color: 'white', textDecoration: 'none', margin: '0 15px' }}>Contact</Link>
+            </nav>
+
+            <h2 style={{ marginBottom: '15px', fontWeight: 'bold' }}>Board of Directors</h2>
+            
             <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(3, 1fr)', // Always 3 profiles per row
-                gap: '10px', // Reduced gap for compact look
+                gap: '10px',
                 justifyContent: 'center',
-                maxWidth: '750px', // Limits width for better layout
+                maxWidth: '750px',
                 margin: '0 auto'
             }}>
                 {boardMembers.map((member, index) => (
                     <div key={index} style={{
-                        width: '210px', // Smaller square
-                        height: '250px', 
+                        width: '180px', 
+                        height: '200px',
                         border: '1px solid #ddd',
-                        borderRadius: '5px',
                         textAlign: 'center',
                         backgroundColor: '#f9f9f9',
                         display: 'flex',
@@ -80,15 +94,15 @@ export default function Board() {
                         justifyContent: 'center',
                         alignItems: 'center'
                     }}>
-                        {/* Profile Image (Now with Normal Square Corners) */}
+                        {/* Profile Image (150px x 150px, No Rounded Corners) */}
                         <img src={member.image} alt={member.name} style={{
                             width: '150px',
                             height: '150px',
                             objectFit: 'cover'
                         }} />
                         
-                        {/* Name */}
-                        <h3 style={{ margin: '5px 0', fontSize: '14px' }}>{member.name}</h3>
+                        {/* Name (Not Bold Anymore) */}
+                        <h3 style={{ margin: '5px 0', fontSize: '14px', fontWeight: 'normal' }}>{member.name}</h3>
 
                         {/* Icons for website and LinkedIn */}
                         <div style={{ display: 'flex', gap: '10px' }}>
