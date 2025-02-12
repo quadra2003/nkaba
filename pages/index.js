@@ -19,12 +19,8 @@ export default function Home() {
 
             <main style={{ padding: '2rem', textAlign: 'center' }}>
                 <h2>Welcome to NKABA</h2>
-                <p>Dedicated to serving the Korean American legal community.</p>
-                <nav>
-                    <Link href="/about" style={{ margin: '10px', textDecoration: 'none', color: 'inherit' }}>About Us</Link>
-                    <Link href="/board" style={{ margin: '10px', textDecoration: 'none', color: 'inherit' }}>Board of Directors</Link>
-                    <Link href="/contact" style={{ margin: '10px', textDecoration: 'none', color: 'inherit' }}>Contact</Link>
-                </nav>
+                <p>Dedicated to uniting the Korean American legal community.</p>
+                
             </main>
         </div>
         </Layout>
