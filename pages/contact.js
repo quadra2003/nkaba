@@ -4,7 +4,7 @@ import Layout from '../components/layout';
 export default function Contact() {
     return (
         <Layout>
-        <div style={{ padding: '2rem', textAlign: 'center' }}>
+        <div style={{ padding: '0.5rem', textAlign: 'center' }}>
             <h2>Contact Us</h2>
             <p>Email: contact@nkaba.org</p>
             <p>Phone: (123) 456-7890</p>
