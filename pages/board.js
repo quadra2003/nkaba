@@ -13,13 +13,36 @@ export default function Board() {
 
     return (
         <div style={{ padding: '2rem', textAlign: 'center' }}>
-            <h2>Board of Directors</h2>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px' }}>
+            <h2 style={{ marginBottom: '20px' }}>Board of Directors</h2>
+            <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(3, 1fr)', // Always 3 profiles per row
+                gap: '20px',
+                justifyContent: 'center'
+            }}>
                 {boardMembers.map((member, index) => (
-                    <div key={index} style={{ padding: '1rem', border: '1px solid #ddd', borderRadius: '10px' }}>
-                        <img src={member.image} alt={member.name} style={{ width: '100%', height: '150px', objectFit: 'cover', borderRadius: '10px' }} />
-                        <h3>{member.name}</h3>
-                        <a href={member.link} target="_blank" rel="noopener noreferrer">View Profile</a>
+                    <div key={index} style={{
+                        padding: '1rem',
+                        border: '1px solid #ddd',
+                        borderRadius: '10px',
+                        textAlign: 'center',
+                        backgroundColor: '#f9f9f9'
+                    }}>
+                        <img src={member.image} alt={member.name} style={{
+                            width: '100%',
+                            height: '200px',
+                            objectFit: 'cover',
+                            borderRadius: '10px'
+                        }} />
+                        <h3 style={{ margin: '10px 0' }}>{member.name}</h3>
+                        <a href={member.link} target="_blank" rel="noopener noreferrer" style={{
+                            display: 'inline-block',
+                            padding: '8px 16px',
+                            color: 'white',
+                            backgroundColor: '#0047A0',
+                            textDecoration: 'none',
+                            borderRadius: '5px'
+                        }}>View Profile</a>
                     </div>
                 ))}
             </div>
