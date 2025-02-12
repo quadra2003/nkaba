@@ -1,10 +1,15 @@
+// pages/contact.js
+import Layout from '../components/layout';
+
 export default function Contact() {
     return (
+        <Layout>
         <div style={{ padding: '2rem', textAlign: 'center' }}>
             <h2>Contact Us</h2>
             <p>Email: contact@nkaba.org</p>
-            <p>Phone: (555) 555-5555</p>
-            <p>Address: 123 NKABA Lane, Washington, DC 20001</p>
+            <p>Phone: (123) 456-7890</p>
+            <p>Address: 123 NKABA Lane, Los Angeles, CA 90001</p>
         </div>
+        </Layout>
     );
 }
