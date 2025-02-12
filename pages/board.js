@@ -63,7 +63,7 @@ export default function Board() {
 
     return (
         <Layout>
-        <div style={{ fontFamily: 'sans-serif', padding: '1rem', textAlign: 'center' }}>
+        <div style={{ fontFamily: 'sans-serif', padding: '0.5rem', textAlign: 'center' }}>
 
             <h2 style={{ marginBottom: '15px', fontWeight: 'bold' }}>Board of Directors</h2>
             
