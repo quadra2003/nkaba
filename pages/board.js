@@ -88,11 +88,11 @@ export default function Board() {
                 textAlign: 'center',
                 maxWidth: '900px',
                 margin: '0 auto',
-                padding: '0.5rem 0'
+                padding: '2rem 0'
             }}>
                 <h2 style={{ marginBottom: '20px', fontWeight: 'bold' }}>Board of Directors</h2>
 
-                {/* Grid for Board Members (Always 3 per row) */}
+                {/* Grid for Board Members */}
                 <div style={{
                     display: 'grid',
                     gridTemplateColumns: 'repeat(3, 1fr)',
@@ -123,19 +123,55 @@ export default function Board() {
                                 objectFit: 'cover'
                             }} />
                             <h3 style={{ margin: '5px 0', fontSize: isMobile ? '10px' : '12px', fontWeight: 'normal' }}>{member.name}</h3>
-
-                            {/* Icons */}
-                            <div style={{ display: 'flex', gap: '5px', justifyContent: 'center' }}>
-                                <a href={member.link} target="_blank" rel="noopener noreferrer">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Globe_icon_2.svg" alt="Website" style={{ width: '18px', height: '18px' }} />
-                                </a>
-                                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
-                                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn" style={{ width: '18px', height: '18px' }} />
-                                </a>
-                            </div>
                         </div>
                     ))}
                 </div>
+
+                {/* Modal Popup */}
+                {selectedMember && (
+                    <div onClick={() => setSelectedMember(null)} style={{
+                        position: 'fixed',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        zIndex: 1000
+                    }}>
+                        <div onClick={(e) => e.stopPropagation()} style={{
+                            backgroundColor: 'white',
+                            padding: '20px',
+                            borderRadius: '10px',
+                            width: '90%',
+                            maxWidth: '350px',
+                            textAlign: 'center',
+                            position: 'relative'
+                        }}>
+                            <button onClick={() => setSelectedMember(null)} style={{
+                                position: 'absolute',
+                                top: '10px',
+                                right: '10px',
+                                background: 'none',
+                                border: 'none',
+                                fontSize: '18px',
+                                cursor: 'pointer'
+                            }}>✖</button>
+
+                            <img src={selectedMember.image} alt={selectedMember.name} style={{ width: '100px', height: '100px', objectFit: 'cover' }} />
+                            <h3>{selectedMember.name}</h3>
+                            <p>{selectedMember.bio}</p>
+
+                            {/* Centered Icons */}
+                            <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginTop: '10px' }}>
+                                <a href={selectedMember.link} target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/8/87/Globe_icon_2.svg" style={{ width: '24px' }} /></a>
+                                <a href={selectedMember.linkedin} target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" style={{ width: '24px' }} /></a>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
         </Layout>
     );
