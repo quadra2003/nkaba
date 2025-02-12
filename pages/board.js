@@ -1,3 +1,6 @@
+// pages/board.js
+import Layout from '../components/layout';
+
 import Link from 'next/link';
 
 export default function Board() {
@@ -59,18 +62,8 @@ export default function Board() {
     ];
 
     return (
+        <Layout>
         <div style={{ fontFamily: 'sans-serif', padding: '1rem', textAlign: 'center' }}>
-            {/* Navigation Bar */}
-            <nav style={{
-                backgroundColor: '#0047A0',
-                padding: '10px',
-                marginBottom: '20px'
-            }}>
-                <Link href="/" style={{ color: 'white', textDecoration: 'none', margin: '0 15px' }}>Home</Link>
-                <Link href="/about" style={{ color: 'white', textDecoration: 'none', margin: '0 15px' }}>About Us</Link>
-                <Link href="/board" style={{ color: 'white', textDecoration: 'none', margin: '0 15px' }}>Board</Link>
-                <Link href="/contact" style={{ color: 'white', textDecoration: 'none', margin: '0 15px' }}>Contact</Link>
-            </nav>
 
             <h2 style={{ marginBottom: '15px', fontWeight: 'bold' }}>Board of Directors</h2>
             
@@ -128,5 +121,6 @@ export default function Board() {
                 ))}
             </div>
         </div>
+        </Layout>
     );
 }
