@@ -10,12 +10,8 @@ export default function Home() {
         <div className="container">
             <Head>
                 <title>NKABA - National Korean American Bar Association</title>
-                <meta name="description" content="National Korean American Bar Association - Dedicated to serving the Korean American legal community." />
+                <meta name="description" content="National Korean American Bar Association - Dedicated to uniting the Korean American legal community." />
             </Head>
-            
-            <header style={{ backgroundColor: '#0047A0', color: '#FFFFFF', padding: '1rem', textAlign: 'center' }}>
-                <h1>National Korean American Bar Association (NKABA)</h1>
-            </header>
 
             <main style={{ padding: '2rem', textAlign: 'center' }}>
                 <h2>Welcome to NKABA</h2>
