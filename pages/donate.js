@@ -19,8 +19,8 @@ export default function Donate() {
 
     return (
         <Layout>
-        <div style={{ textAlign: "center", padding: "2rem" }}>
-            <h1>Support NKABA</h1>
+        <div style={{ textAlign: "center", padding: "0.5rem" }}>
+            <h2>Support NKABA</h2>
             <p>Your donation helps us continue our mission.</p>
             <button 
                 onClick={handleDonate} 
