@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Layout from '../components/layout';
 
 export default function Donate() {
     const [loading, setLoading] = useState(false);
