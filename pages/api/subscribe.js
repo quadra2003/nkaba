@@ -21,7 +21,10 @@ export default async function handler(req, res) {
         try {
             const { email } = req.body;
 
-            if (!email) {
+            // ✅ Server-side email validation
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+              
+            if (!email || !re.test(email)) {
                 return res.status(400).json({ message: "Email is required" });
             }
 
