@@ -1,20 +1,26 @@
-/* Customize scrollbar appearance */
+/* Entire scrollbar */
 ::-webkit-scrollbar {
-    width: 16px;  /* Adjust scrollbar width */
+    width: 8px; /* Slightly thin but visible */
 }
 
-/* Track (background of the scrollbar) */
+/* Scrollbar track (background) */
 ::-webkit-scrollbar-track {
-    background: #ffffff /* #f8f8f8; /* Light gray */
+    background: transparent; /* Matches the background, effectively invisible */
 }
 
 /* Scrollbar handle */
 ::-webkit-scrollbar-thumb {
-    background: #f8f8f8; /* Slightly darker gray d1d1d1*/
-    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.3); /* Light translucent white */
+    border-radius: 10px; /* Soft rounded edges */
 }
 
 /* Scrollbar handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #f8f8f8; /* Darker gray on hover bcbcbc*/
+    background: rgba(255, 255, 255, 0.5); /* Slightly more visible on hover */
+}
+
+/* For Firefox */
+html {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
