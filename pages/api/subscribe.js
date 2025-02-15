@@ -3,12 +3,13 @@ import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 // Firebase Config (Replace with your Firebase project settings)
 const firebaseConfig = {
-    apiKey: "YOUR_FIREBASE_API_KEY",
-    authDomain: "YOUR_FIREBASE_AUTH_DOMAIN",
-    projectId: "YOUR_FIREBASE_PROJECT_ID",
-    storageBucket: "YOUR_FIREBASE_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_FIREBASE_MESSAGING_SENDER_ID",
-    appId: "YOUR_FIREBASE_APP_ID"
+      apiKey: "AIzaSyDoorE9viUr53JWqP2yAR_jhz0rBx4zGWQ",
+      authDomain: "nkaba-69785.firebaseapp.com",
+      projectId: "nkaba-69785",
+      storageBucket: "nkaba-69785.firebasestorage.app",
+      messagingSenderId: "648615995478",
+      appId: "1:648615995478:web:5bf6dbe8a39f82080f33f7",
+      measurementId: "G-GWNWWK4HK8"
 };
 
 // Initialize Firebase
