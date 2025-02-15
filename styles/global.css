@@ -1,0 +1,20 @@
+/* Customize scrollbar appearance */
+::-webkit-scrollbar {
+    width: 6px;  /* Adjust scrollbar width */
+}
+
+/* Track (background of the scrollbar) */
+::-webkit-scrollbar-track {
+    background: #f8f8f8; /* Light gray */
+}
+
+/* Scrollbar handle */
+::-webkit-scrollbar-thumb {
+    background: #d1d1d1; /* Slightly darker gray */
+    border-radius: 3px;
+}
+
+/* Scrollbar handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #bcbcbc; /* Darker gray on hover */
+}
