@@ -39,42 +39,59 @@ export default function Home() {
                 <p>Dedicated to serving the Korean American legal community.</p>
 
                 {/* Subscribe Section */}
-                <div style={{ marginTop: '30px', padding: '20px', border: '1px solid #ccc', borderRadius: '5px', maxWidth: '400px', marginLeft: 'auto', marginRight: 'auto' }}>
-                    <h3>Subscribe to Our Mailing List</h3>
-                    <input
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        placeholder="Enter your email"
-                        style={{
-                            padding: '8px',
-                            width: '100%',
-                            marginBottom: '10px',
-                            border: '1px solid #ccc',
-                            borderRadius: '5px',
-                        }}
-                    />
-                    <button
-                        onClick={handleSubscribe}
-                        style={{
-                            padding: '8px 12px',
-                            backgroundColor: '#0047A0',
-                            color: 'white',
-                            border: 'none',
-                            borderRadius: '5px',
-                            cursor: 'pointer',
-                            width: '100%',
-                        }}
-                    >
-                        Subscribe
-                    </button>
+
+
+                <div style={{ 
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    alignItems: 'center', 
+                    justifyContent: 'center', 
+                    width: '100%' 
+                }}>
+                    <h2 style={{ marginBottom: '10px' }}>Subscribe to Our Mailing List</h2>
+                
+                    <div style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: '100%',
+                        maxWidth: '400px', // Ensures a clean layout
+                        gap: '10px' // Space between input and button
+                    }}>
+                        <input
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            placeholder="Enter your email"
+                            style={{
+                                flex: '1', // Input takes up remaining space
+                                padding: '10px',
+                                border: '1px solid #ccc',
+                                borderRadius: '5px',
+                                fontSize: '16px',
+                                maxWidth: '280px' // Controls input width
+                            }}
+                        />
+                        <button
+                            onClick={handleSubscribe}
+                            style={{
+                                padding: '10px 15px',
+                                backgroundColor: '#0047A0',
+                                color: 'white',
+                                border: 'none',
+                                borderRadius: '5px',
+                                fontSize: '16px',
+                                cursor: 'pointer'
+                            }}
+                        >
+                            Subscribe
+                        </button>
+                    </div>
+                    
                     {message && <p style={{ marginTop: '10px', color: message.includes('success') ? 'green' : 'red' }}>{message}</p>}
                 </div>
 
-                {/* Footer */}
-                <footer style={{ marginTop: '40px', backgroundColor: '#000', color: '#fff', padding: '10px' }}>
-                    <p>&copy; 2025 National Korean American Bar Association. All rights reserved.</p>
-                </footer>
+
             </div>
         </Layout>
     );
