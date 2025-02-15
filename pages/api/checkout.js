@@ -1,6 +1,6 @@
 import Stripe from "stripe";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY); // Load Stripe key securely
 
 export default async function handler(req, res) {
     if (req.method !== "POST") {
@@ -17,17 +17,15 @@ export default async function handler(req, res) {
                 {
                     price_data: {
                         currency: "usd",
-                        product_data: {
-                            name: "Donation to NKABA",
-                        },
-                        unit_amount: 5000, // $50.00 donation
+                        product_data: { name: "Donation to NKABA" },
+                        unit_amount: 5000, // $50 donation
                     },
                     quantity: 1,
                 },
             ],
         });
 
-        res.json({ url: session.url });
+        res.status(200).json({ url: session.url });
     } catch (error) {
         console.error("Error creating checkout session", error);
         res.status(500).json({ error: "Internal server error" });
