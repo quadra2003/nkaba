@@ -7,29 +7,37 @@ export default function Home() {
     const [message, setMessage] = useState('');
 
     // Function to handle subscription
+
     const handleSubscribe = async () => {
-        if (!email) {
-            setMessage('Please enter a valid email.');
-            return;
-        }
+    if (!email || !validateEmail(email)) {
+        setMessage("Please enter a valid email address.");
+        return;
+    }
 
-        try {
-            const response = await fetch('/api/subscribe', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email }),
-            });
+    try {
+        const response = await fetch("/api/subscribe", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email }),
+        });
 
-            if (response.ok) {
-                setMessage('Subscribed successfully!');
-                setEmail('');
-            } else {
-                setMessage('Subscription failed. Please try again.');
-            }
-        } catch (error) {
-            setMessage('An error occurred. Please try again.');
+        if (response.ok) {
+            setMessage("Subscribed successfully!");
+            setEmail("");
+        } else {
+            setMessage("Subscription failed. Try again.");
         }
-    };
+    } catch (error) {
+        setMessage("An error occurred. Please try again.");
+    }
+};
+
+        // ✅ Email validation function
+        const validateEmail = (email) => {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Standard email regex
+            return re.test(email);
+        };
+
 
     return (
         <Layout>
