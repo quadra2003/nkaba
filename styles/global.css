@@ -1,26 +1,26 @@
 /* Scrollbar width */
 ::-webkit-scrollbar {
-    width: 8px; /* Slightly thin but still visible */
+    width: 8px; /* Thin but visible */
 }
 
 /* Scrollbar track (background) */
 ::-webkit-scrollbar-track {
-    background: transparent; /* Invisible track */
+    background: transparent; /* Track is invisible */
 }
 
 /* Scrollbar handle (draggable part) */
 ::-webkit-scrollbar-thumb {
-    background: rgba(120, 120, 120, 0.4); /* Light gray with some transparency */
+    background: rgba(160, 160, 160, 0.3); /* Light gray with medium transparency */
     border-radius: 10px; /* Rounded edges */
 }
 
 /* Scrollbar handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(120, 120, 120, 0.6); /* Slightly darker on hover */
+    background: rgba(140, 140, 140, 0.5); /* Slightly darker on hover */
 }
 
 /* For Firefox */
 html {
     scrollbar-width: thin;
-    scrollbar-color: rgba(120, 120, 120, 0.4) transparent;
+    scrollbar-color: rgba(160, 160, 160, 0.3) transparent;
 }
