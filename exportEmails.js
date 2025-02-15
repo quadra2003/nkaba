@@ -3,7 +3,7 @@ const { parse } = require("json2csv");
 const fs = require("fs");
 
 // 🔹 Replace with your Firebase project credentials JSON file
-const serviceAccount = require("./path-to-your-service-account.json");
+const serviceAccount = require("./service-account.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
