@@ -38,6 +38,14 @@ export default function Home() {
             return re.test(email);
         };
 
+// Enter is the same as clicking Subscribe
+    
+    const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+        handleSubscribe();
+    }
+};
+
 
     return (
         <Layout>
@@ -70,6 +78,7 @@ export default function Home() {
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
+                            onKeyDown={handleKeyDown} // ✅ Listen for "Enter"
                             placeholder="Enter your email"
                             style={{
                                 flex: '1', // Input takes up remaining space
