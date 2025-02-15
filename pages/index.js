@@ -38,13 +38,6 @@ export default function Home() {
                 <h1>Welcome to the National Korean American Bar Association (NKABA)</h1>
                 <p>Dedicated to serving the Korean American legal community.</p>
 
-                {/* Navigation Links */}
-                <nav>
-                    <a href="/about" style={{ margin: '10px', textDecoration: 'none', color: '#0047A0' }}>About Us</a>
-                    <a href="/board" style={{ margin: '10px', textDecoration: 'none', color: '#0047A0' }}>Board of Directors</a>
-                    <a href="/contact" style={{ margin: '10px', textDecoration: 'none', color: '#0047A0' }}>Contact</a>
-                </nav>
-
                 {/* Subscribe Section */}
                 <div style={{ marginTop: '30px', padding: '20px', border: '1px solid #ccc', borderRadius: '5px', maxWidth: '400px', marginLeft: 'auto', marginRight: 'auto' }}>
                     <h3>Subscribe to Our Mailing List</h3>
