@@ -18,6 +18,7 @@ export default function Donate() {
     };
 
     return (
+        <Layout>
         <div style={{ textAlign: "center", padding: "2rem" }}>
             <h1>Support NKABA</h1>
             <p>Your donation helps us continue our mission.</p>
@@ -36,5 +37,6 @@ export default function Donate() {
                 {loading ? "Processing..." : "Donate Now"}
             </button>
         </div>
+                </Layout>
     );
 }
