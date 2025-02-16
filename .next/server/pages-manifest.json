@@ -6,5 +6,5 @@
   "/about": "pages/about.js",
   "/board": "pages/board.js",
   "/donate": "pages/donate.js",
-  "/api/checkout": "pages/api/checkout.js"
+  "/contact": "pages/contact.js"
 }

@@ -24,3 +24,7 @@ html {
     scrollbar-width: thin;
     scrollbar-color: rgba(160, 160, 160, 0.3) transparent;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
