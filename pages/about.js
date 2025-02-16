@@ -31,7 +31,7 @@ export default function AboutPage() {
       <div className="space-y-20 py-12">
         {/* Hero Section */}
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-6">About NKABA</h1>
+          <h1 className="text-3xl font-bold text-gray-900 mb-6">About NKABA</h1>
           <p className="text-xl text-gray-600">
             The National Korean American Bar Association is dedicated to serving the Korean American legal community and promoting professional growth and diversity in the legal field.
           </p>
