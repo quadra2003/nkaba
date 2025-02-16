@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Layout from '../components/layout';
 
 export default function Donate() {
     const [loading, setLoading] = useState(false);
@@ -17,8 +18,9 @@ export default function Donate() {
     };
 
     return (
-        <div style={{ textAlign: "center", padding: "2rem" }}>
-            <h1>Support NKABA</h1>
+        <Layout>
+        <div style={{ textAlign: "center", padding: "0.5rem" }}>
+            <h2>Support NKABA</h2>
             <p>Your donation helps us continue our mission.</p>
             <button 
                 onClick={handleDonate} 
@@ -35,5 +37,6 @@ export default function Donate() {
                 {loading ? "Processing..." : "Donate Now"}
             </button>
         </div>
+                </Layout>
     );
 }
