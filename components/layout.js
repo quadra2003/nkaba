@@ -10,6 +10,7 @@ export default function Layout({ children }) {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Board', path: '/board' },
+    { name: 'Gallery', path: '/gallery' },
     { name: 'Donate', path: '/donate' },
     { name: 'Contact', path: '/contact' }
   ];
