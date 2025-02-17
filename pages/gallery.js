@@ -1,8 +1,6 @@
 // pages/gallery.js
 import { useState, useEffect } from 'react';
 import Layout from '../components/layout';
-import { collection, getDocs, query, orderBy } from 'firebase/firestore';
-import { db } from '../firebaseConfig';
 import { Camera, Map, Calendar } from 'lucide-react';
 
 export default function GalleryPage() {
@@ -13,6 +11,9 @@ export default function GalleryPage() {
   useEffect(() => {
     async function fetchPhotos() {
       try {
+        const { db } = await import('../firebaseConfig');
+        const { collection, getDocs, query, orderBy } = await import('firebase/firestore');
+        
         const photosQuery = query(collection(db, 'photos'), orderBy('timestamp', 'desc'));
         const snapshot = await getDocs(photosQuery);
         const photoData = snapshot.docs.map(doc => ({
@@ -45,6 +46,10 @@ export default function GalleryPage() {
         {loading ? (
           <div className="text-center py-12">
             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
+          </div>
+        ) : photos.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-gray-600">No photos uploaded yet.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -100,10 +105,12 @@ export default function GalleryPage() {
               <div className="p-6 bg-white">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{selectedPhoto.caption}</h3>
                 <div className="space-y-2 text-gray-600">
-                  <div className="flex items-center">
-                    <Calendar className="w-5 h-5 mr-2" />
-                    <span>{new Date(selectedPhoto.timestamp?.toDate()).toLocaleDateString()}</span>
-                  </div>
+                  {selectedPhoto.timestamp && (
+                    <div className="flex items-center">
+                      <Calendar className="w-5 h-5 mr-2" />
+                      <span>{new Date(selectedPhoto.timestamp.toDate()).toLocaleDateString()}</span>
+                    </div>
+                  )}
                   {selectedPhoto.location && (
                     <div className="flex items-center">
                       <Map className="w-5 h-5 mr-2" />
@@ -117,7 +124,9 @@ export default function GalleryPage() {
                     </div>
                   )}
                 </div>
-                <p className="mt-4 text-gray-600">{selectedPhoto.description}</p>
+                {selectedPhoto.description && (
+                  <p className="mt-4 text-gray-600">{selectedPhoto.description}</p>
+                )}
               </div>
             </div>
           </div>
