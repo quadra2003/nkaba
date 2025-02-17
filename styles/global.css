@@ -1,3 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
 /* Scrollbar width */
 ::-webkit-scrollbar {
     width: 8px; /* Thin but visible */
@@ -24,7 +29,3 @@ html {
     scrollbar-width: thin;
     scrollbar-color: rgba(160, 160, 160, 0.3) transparent;
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
