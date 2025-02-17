@@ -1,15 +1,13 @@
 // pages/admin/upload-photos.js
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Layout from '../../components/layout';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import { storage, db } from '../../firebaseConfig';
 import { Camera, Upload } from 'lucide-react';
 
 export default function UploadPhotos() {
   const [files, setFiles] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [firebase, setFirebase] = useState(null);
 
   const [photoDetails, setPhotoDetails] = useState({
     caption: '',
@@ -17,6 +15,19 @@ export default function UploadPhotos() {
     event: '',
     location: ''
   });
+
+  // Initialize Firebase only on client side
+  useEffect(() => {
+    const initFirebase = async () => {
+      const { storage, db } = await import('../../firebaseConfig');
+      const { ref, uploadBytes, getDownloadURL } = await import('firebase/storage');
+      const { collection, addDoc, serverTimestamp } = await import('firebase/firestore');
+      
+      setFirebase({ storage, db, ref, uploadBytes, getDownloadURL, collection, addDoc, serverTimestamp });
+    };
+
+    initFirebase();
+  }, []);
 
   const handleFileChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
@@ -33,7 +44,7 @@ export default function UploadPhotos() {
 
   const handleUpload = async (e) => {
     e.preventDefault();
-    if (files.length === 0) return;
+    if (!firebase || files.length === 0) return;
 
     setUploading(true);
     const totalFiles = files.length;
@@ -42,19 +53,19 @@ export default function UploadPhotos() {
     try {
       for (const file of files) {
         // Create a reference to storage
-        const storageRef = ref(storage, `events/${Date.now()}-${file.name}`);
+        const storageRef = firebase.ref(firebase.storage, `events/${Date.now()}-${file.name}`);
         
         // Upload file
-        await uploadBytes(storageRef, file);
+        await firebase.uploadBytes(storageRef, file);
         
         // Get download URL
-        const downloadURL = await getDownloadURL(storageRef);
+        const downloadURL = await firebase.getDownloadURL(storageRef);
 
         // Add to Firestore
-        await addDoc(collection(db, 'photos'), {
+        await firebase.addDoc(firebase.collection(firebase.db, 'photos'), {
           ...photoDetails,
           imageUrl: downloadURL,
-          timestamp: serverTimestamp(),
+          timestamp: firebase.serverTimestamp(),
           uploadedBy: 'admin' // This should be the actual user's ID
         });
 
